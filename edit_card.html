@@ -1,0 +1,295 @@
+<!DOCTYPE html><html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>Edytuj Dane mDowodu</title>
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/card.css"> <!-- Reusing some card styles -->
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
+    <style>
+        body {
+            font-family: sans-serif;
+            padding: 20px;
+            background-color: #f4f7f6;
+            color: #333;
+        }
+
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            max-width: 700px;
+            margin: 20px auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: #0056b3;
+            /* mObywatel blue */
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-group label {
+            margin-bottom: 5px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        .form-group input[type="text"],
+        .form-group input[type="date"],
+        .form-group input[type="file"],
+        .form-group textarea {
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .button-group {
+            margin-top: 30px;
+            text-align: center;
+        }
+
+        .button-group button {
+            padding: 12px 25px;
+            background-color: #007bff;
+            /* Standard blue */
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .button-group button:hover {
+            background-color: #0056b3;
+        }
+
+        .button-group .back-button {
+            background-color: #6c757d;
+            margin-left: 10px;
+        }
+
+        .button-group .back-button:hover {
+            background-color: #545b62;
+        }
+
+        .top_grid_fixed {
+            /* Re-using for consistency */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 15px;
+            background-color: #0056b3;
+            /* mObywatel blue */
+            color: white;
+        }
+
+        .top_grid_fixed .title_text_fixed {
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+
+        .top_grid_fixed .back_text_fixed {
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        #profileImagePreview {
+            max-width: 100px;
+            max-height: 100px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="top_grid_fixed">
+        <div class="action_grid_fixed">
+            <p onclick="window.location.href='card.html'" class="back_text_fixed">
+                &lt; Wróć do mDowodu</p>
+        </div>
+        <p class="title_text_fixed">Edytuj Dane</p>
+        <div></div> <!-- Spacer -->
+    </div>
+
+    <div class="container">
+        <h1>Edytuj dane mDowodu</h1>
+        <form id="editCardForm">
+            <div class="form-grid">
+                <div class="form-group">
+                    <label for="name">Imię (imiona):</label>
+                    <input type="text" id="name" name="name">
+                </div>
+                <div class="form-group">
+                    <label for="surname">Nazwisko:</label>
+                    <input type="text" id="surname" name="surname">
+                </div>
+                <div class="form-group">
+                    <label for="nationality">Obywatelstwo:</label>
+                    <input type="text" id="nationality" name="nationality">
+                </div>
+                <div class="form-group">
+                    <label for="birthday">Data urodzenia:</label>
+                    <input type="text" id="birthday" name="birthday" placeholder="DD.MM.RRRR">
+                </div>
+                <div class="form-group">
+                    <label for="pesel">Numer PESEL:</label>
+                    <input type="text" id="pesel" name="pesel">
+                </div>
+                <div class="form-group">
+                    <label for="seriesAndNumber">Seria i numer dowodu:</label>
+                    <input type="text" id="seriesAndNumber" name="seriesAndNumber">
+                </div>
+                <div class="form-group">
+                    <label for="expiryDate">Termin ważności:</label>
+                    <input type="text" id="expiryDate" name="expiryDate" placeholder="DD.MM.RRRR">
+                </div>
+                <div class="form-group">
+                    <label for="givenDate">Data wydania:</label>
+                    <input type="text" id="givenDate" name="givenDate" placeholder="DD.MM.RRRR">
+                </div>
+                <div class="form-group">
+                    <label for="fathersName">Imię ojca:</label>
+                    <input type="text" id="fathersName" name="fathersName">
+                </div>
+                <div class="form-group">
+                    <label for="mothersName">Imię matki:</label>
+                    <input type="text" id="mothersName" name="mothersName">
+                </div>
+                <div class="form-group">
+                    <label for="familyName">Nazwisko rodowe:</label>
+                    <input type="text" id="familyName" name="familyName">
+                </div>
+                <div class="form-group">
+                    <label for="sex">Płeć:</label>
+                    <input type="text" id="sex" name="sex">
+                </div>
+                <div class="form-group">
+                    <label for="fathersFamilyName">Nazwisko rodowe ojca:</label>
+                    <input type="text" id="fathersFamilyName" name="fathersFamilyName">
+                </div>
+                <div class="form-group">
+                    <label for="mothersFamilyName">Nazwisko rodowe matki:</label>
+                    <input type="text" id="mothersFamilyName" name="mothersFamilyName">
+                </div>
+                <div class="form-group">
+                    <label for="birthPlace">Miejsce urodzenia:</label>
+                    <input type="text" id="birthPlace" name="birthPlace">
+                </div>
+                <div class="form-group">
+                    <label for="countryOfBirth">Kraj urodzenia:</label>
+                    <input type="text" id="countryOfBirth" name="countryOfBirth">
+                </div>
+                <div class="form-group" style="grid-column: span 2;">
+                    <label for="address">Adres zameldowania:</label>
+                    <textarea id="address" name="address"></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="registrationDate">Data zameldowania:</label>
+                    <input type="text" id="registrationDate" name="registrationDate" placeholder="DD.MM.RRRR">
+                </div>
+                <div class="form-group">
+                    <label for="profileImageInput">Zdjęcie profilowe:</label>
+                    <input type="file" id="profileImageInput" name="profileImageInput" accept="image/*">
+                    <img id="profileImagePreview" src="#" alt="Podgląd zdjęcia" style="display:none;">
+                    <input type="hidden" id="profileImageBase64" name="profileImageBase64">
+                </div>
+            </div>
+            <div class="button-group">
+                <button type="submit">Zapisz zmiany</button>
+                <button type="button" class="back-button" onclick="window.location.href='card.html'">Anuluj</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="js/data_manager.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const form = document.getElementById('editCardForm');
+            const profileImageInput = document.getElementById('profileImageInput');
+            const profileImagePreview = document.getElementById('profileImagePreview');
+            const profileImageBase64Field = document.getElementById('profileImageBase64');
+
+            let currentData = getCardData();
+
+            // Populate form with current data
+            for (const key in currentData) {
+                if (form.elements[key]) {
+                    if (key === 'address' && typeof currentData[key] === 'string') {
+                        form.elements[key].value = currentData[key].replace(/<br\s*\/?>/gi, '\\n');
+                    } else {
+                        form.elements[key].value = currentData[key];
+                    }
+                }
+            }
+            // Set existing image preview if available
+            if (currentData.profileImageBase64) {
+                profileImagePreview.src = currentData.profileImageBase64;
+                profileImagePreview.style.display = 'block';
+                profileImageBase64Field.value = currentData.profileImageBase64;
+            }
+
+
+            profileImageInput.addEventListener('change', function (event) {
+                const file = event.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function (e) {
+                        profileImagePreview.src = e.target.result;
+                        profileImagePreview.style.display = 'block';
+                        profileImageBase64Field.value = e.target.result; // Store base64 string
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    // If no file is selected, or selection is cleared
+                    // We should keep the existing image if there was one, or clear if not
+                    if (!currentData.profileImageBase64) {
+                        profileImagePreview.style.display = 'none';
+                        profileImagePreview.src = '#';
+                        profileImageBase64Field.value = '';
+                    } else {
+                        // Keep the old image if user cancels file selection
+                        profileImagePreview.src = currentData.profileImageBase64;
+                        profileImageBase64Field.value = currentData.profileImageBase64;
+                    }
+                }
+            });
+
+            form.addEventListener('submit', function (event) {
+                event.preventDefault();
+                const formData = new FormData(form);
+                const updatedData = {};
+                for (const [key, value] of formData.entries()) {
+                    if (key !== 'profileImageInput') { // Don't save the file input itself
+                        updatedData[key] = value;
+                    }
+                }
+                // Ensure profileImageBase64 is explicitly included from the hidden field
+                updatedData.profileImageBase64 = profileImageBase64Field.value;
+
+                saveCardData(updatedData);
+                alert('Dane zostały zaktualizowane!');
+                window.location.href = 'card.html'; // Redirect back to the card display page
+            });
+        });
+    </script>
+
+
+</body></html>

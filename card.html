@@ -1,0 +1,334 @@
+<!-- saved from url=(0014)about:internet --><html><head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>mObywatel</title>
+    <link rel="manifest" href="js/manifest.json">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/card.css">
+    <link rel="icon" type="image/x-icon" href="images/logo.png">
+    <link rel="apple-touch-icon" href="images/logo.png">
+    <link rel="shortcut icon" href="images/logo.png">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport" content="width=device-width, initial-scale=0.8, user-scalable=no">
+    <meta name="mobile-web-app-capable" content="yes">
+</head>
+
+<body>
+    <div class="top_grid_fixed">
+        <div class="action_grid_fixed">
+            <img src="images/back_blue.png" class="back_img_fixed">
+            <p onclick="sendTo('home')" class="back_text_fixed">Wróć</p>
+        </div>
+        <p class="title_text_fixed">mDowód</p>
+        <span onclick="sendTo('edit_card')" style="cursor: pointer; display: inline-flex; align-items: center;">
+            <!-- Wrapper span -->
+            <img src="images/help.png" class="help_img_fixed">
+        </span>
+    </div>
+    <div class="bottom_bar">
+        <div class="bottom_bar_grid">
+            <div class="bottom_element_grid" send="home">
+                <div class="bottom_element_image home home_open"></div>
+                <p class="bottom_element_text open">Pulpit</p>
+            </div>
+            <div class="bottom_element_grid" send="documents">
+                <div class="bottom_element_image documents"></div>
+                <p class="bottom_element_text">Dokumenty</p>
+            </div>
+            <div class="bottom_element_grid" send="services">
+                <div class="bottom_element_image services"></div>
+                <p class="bottom_element_text">Usługi</p>
+            </div>
+            <div class="bottom_element_grid" send="qr">
+                <div class="bottom_element_image qr"></div>
+                <p class="bottom_element_text">Kod QR</p>
+            </div>
+            <div class="bottom_element_grid" send="more">
+                <div class="bottom_element_image more"></div>
+                <p class="bottom_element_text">Więcej</p>
+            </div>
+        </div>
+    </div>
+    <div class="container">
+        <p class="time_text" id="time">Czas: 22:03:31 22.05.2025</p>
+        <div class="id_wrapper">
+            <div class="id_image_data">
+                <img draggable="false" class="id_image" src="images/plate.png">
+                <div class="inset">
+
+                </div>
+                <div class="id_own_image" id="profileImageDiv"> <!-- Added ID for easier targeting -->
+                </div>
+                <img draggable="false" src="images/flag.webp" class="flag_video">
+                <img draggable="false" src="images/eagle.gif" class="eagle_video">
+                <p class="eagle_text">Rzeczpospolita<br>Polska</p>
+                <div class="id_data_grid">
+                    <div class="data_holder">
+                        <p class="data_title firstname" id="name">NORBERT</p>
+                        <p class="data_value">Imię (imiona)</p>
+                    </div>
+                    <div class="data_holder">
+                        <p class="data_title surname" id="surname">GRZESIAK</p>
+                        <p class="data_value">Nazwisko</p>
+                    </div>
+                    <div class="data_holder">
+                        <p class="data_title" id="nationality">POLSKIE</p>
+                        <p class="data_value">Obywatelstwo</p>
+                    </div>
+                    <div class="data_holder">
+                        <p class="data_title" id="birthday">24.01.2007</p>
+                        <p class="data_value">Data urodzenia</p>
+                    </div>
+                    <div class="data_holder">
+                        <p class="data_title" id="pesel">07212402957</p>
+                        <p class="data_value">Numer PESEL</p>
+                    </div>
+                </div>
+            </div>
+            <div class="id_bottom">
+                <div class="bottom_grid">
+                    <img class="bottom_image" src="images/valid.png">
+                    <p class="bottom_text" style="color: #317C26; font-weight: 600; font-size: 16px; margin-left: 20px;">Dokument ważny</p>
+                </div>
+            </div>
+        </div>
+        <div class="under_container">
+            <div class="under_grid">
+                <div class="under_icon" onclick="sendTo('scan', 'card')">
+                    <div class="under_image_circle">
+                        <img class="under_image" src="images/confirm.png">
+                    </div>
+                    <p class="under_text">Potwierdź swoje dane</p>
+                </div>
+                <div class="under_icon" onclick="sendTo('document')">
+                    <div class="under_image_circle">
+                        <img class="under_image" src="images/card.png">
+                    </div>
+                    <p class="under_text">Dane dowodu osobistego</p>
+                </div>
+                <div class="under_icon" onclick="sendTo('pesel')">
+                    <div class="under_image_circle">
+                        <img class="under_image" src="images/lock.png">
+                    </div>
+                    <p class="under_text">Zastrzeż PESEL</p>
+                </div>
+                <div class="under_icon" onclick="sendTo('shortcuts')">
+                    <div class="under_image_circle">
+                        <img class="under_image" src="images/more.png">
+                    </div>
+                    <p class="under_text">Pozostałe skróty</p>
+                </div>
+            </div>
+        </div>
+        <div class="confirm_info">
+            <div class="confirm_box">
+                <p class="box_top">Seria i numer</p>
+                <p class="box_value box_highlight" id="seriesAndNumber">LGZB 76872</p>
+                <button class="main_button">Kopiuj</button>
+            </div>
+            <div class="confirm_box">
+                <p class="box_top">Termin ważności</p>
+                <p class="box_value" id="expiryDate">24.01.2030</p>
+            </div>
+            <div class="confirm_box">
+                <p class="box_top">Data wydania</p>
+                <p class="box_value" id="givenDate">24.01.2025</p>
+            </div>
+            <div class="confirm_box">
+                <p class="box_top">Imię ojca</p>
+                <p class="box_value" id="fathersName">JERZY</p>
+            </div>
+            <div class="confirm_box" style="border: none;">
+                <p class="box_top">Imię matki</p>
+                <p class="box_value" id="mothersName">BARBARA</p>
+            </div>
+        </div>
+        <div class="other_grid">
+            <div class="bottom_holder info_holder">
+                <div class="bottom_grid">
+                    <p class="bottom_text" style="color: #1f2125; margin-left: 0px;">Twoje dodatkowe dane</p>
+                </div>
+                <img class="action_arrow" src="images/right_arrow.png">
+                <div class="additional_holder">
+                    <div class="additional_grid">
+                        <p class="additional_title">Nazwisko rodowe</p>
+                        <p class="additional_subtitle" id="familyName">NSJS</p>
+                    </div>
+                    <div class="additional_grid">
+                        <p class="additional_title">Płeć</p>
+                        <p class="additional_subtitle" id="sex">MĘŻCZYZNA</p>
+                    </div>
+                    <div class="additional_grid">
+                        <p class="additional_title">Nazwisko rodowe ojca</p>
+                        <p class="additional_subtitle" id="fathersFamilyName">BSBS</p>
+                    </div>
+                    <div class="additional_grid">
+                        <p class="additional_title">Nazwisko rodowe matki</p>
+                        <p class="additional_subtitle" id="mothersFamilyName">BSBS</p>
+                    </div>
+                    <div class="additional_grid">
+                        <p class="additional_title">Miejsce urodzenia</p>
+                        <p class="additional_subtitle" id="birthPlace">WADOWICE</p>
+                    </div>
+                    <div class="additional_grid">
+                        <p class="additional_title">Kraj urodzenia</p>
+                        <p class="additional_subtitle" id="countryOfBirth">POLSKA</p>
+                    </div>
+                    <div class="additional_grid">
+                        <p class="additional_title">Adres zameldowania na pobyt stały</p>
+                        <p class="additional_subtitle" id="address">UL. BSBS<br>34-130 WADOWICE</p>
+                        <!-- Corrected ID to "address" -->
+                    </div>
+                    <div class="additional_grid" style="border-bottom: none; margin-bottom: 0px;">
+                        <p class="additional_title">Data zameldowania na pobyt stały</p>
+                        <p class="additional_subtitle home_date" id="registrationDate">21.06.2012</p> <!-- Added ID -->
+                    </div>
+                </div>
+            </div>
+            <div class="bottom_holder" style="height: 95px; margin-bottom: 120px;">
+                <div class="bottom_update">
+                    <div class="bottom_update_grid">
+                        <p class="bottom_update_text" style="margin-left: 0px;">Ostatnia aktualizacja</p>
+                        <p class="bottom_update_value" id="updateDateText" style="margin-left: 0px;">24.12.2024</p>
+                        <!-- Added ID -->
+                    </div>
+                    <button class="main_button update" id="updateButton">Aktualizuj</button> <!-- Added ID -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="js/encode.js"></script>
+    <script src="js/bar.js"></script>
+    <!-- <script src="assets/card.js"></script> original card.js might interfere or be redundant -->
+    <script src="js/cache.js"></script>
+    <script src="js/data_manager.js"></script>
+    <script src="js/navigation.js"></script> <!-- Added global navigation script -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const cardData = getCardData();
+            const dateOptions = { day: '2-digit', month: '2-digit', year: 'numeric' };
+
+            // Helper function to set text content if element exists
+            function setText(id, value) {
+                const element = document.getElementById(id);
+                if (element) {
+                    // Ensure htmlEncode is available (it should be, as encode.js is loaded first)
+                    if (typeof htmlEncode === 'function') {
+                        // Exception: 'address' field might contain legitimate <br> tags from data_manager.js
+                        // and should not be double-encoded. Other fields should be encoded.
+                        if (id === 'address') {
+                            element.innerHTML = value; // Value already has <br> if needed
+                        } else {
+                            element.innerHTML = htmlEncode(value);
+                        }
+                    } else {
+                        console.warn('htmlEncode function not found. Displaying raw value for ID ' + id);
+                        element.innerHTML = value; // Fallback, though less secure
+                    }
+                } else {
+                    console.warn('Element with ID ' + id + ' not found.');
+                }
+            }
+
+            // Populate data fields
+            setText('name', cardData.name);
+            setText('surname', cardData.surname);
+            setText('nationality', cardData.nationality);
+            setText('birthday', cardData.birthday);
+            setText('pesel', cardData.pesel);
+            setText('seriesAndNumber', cardData.seriesAndNumber);
+            setText('expiryDate', cardData.expiryDate);
+            setText('givenDate', cardData.givenDate);
+            setText('fathersName', cardData.fathersName);
+            setText('mothersName', cardData.mothersName);
+            setText('familyName', cardData.familyName);
+            setText('sex', cardData.sex);
+            setText('fathersFamilyName', cardData.fathersFamilyName);
+            setText('mothersFamilyName', cardData.mothersFamilyName);
+            setText('birthPlace', cardData.birthPlace);
+            setText('countryOfBirth', cardData.countryOfBirth);
+            setText('address', cardData.address); // Corrected ID from 'adress'
+            setText('registrationDate', cardData.registrationDate); // ID for 'Data zameldowania'
+
+            // Update profile image
+            const profileImageDiv = document.getElementById('profileImageDiv');
+            if (profileImageDiv) {
+                if (cardData.profileImageBase64) {
+                    profileImageDiv.style.backgroundImage = `url('${cardData.profileImageBase64}')`;
+                } else {
+                    // Fallback if no image is set in data_manager, or use a default one from card.css
+                    // profileImageDiv.style.backgroundImage = `url('assets/plate.png')`; // Default if needed
+                    console.log('No profile image base64 data found, using default or CSS background.');
+                }
+            } else {
+                console.warn('Element with ID profileImageDiv not found.');
+            }
+
+            // Time update - keeping existing logic if it's in a separate file or already works
+            // If time update was part of card.js, it might need to be re-added or ensured it's still running
+            // For now, assuming existing time logic works independently or is in another included script.
+            // Example: if card.js had the time update:
+            // if (typeof updateTime === 'function') { updateTime(); setInterval(updateTime, 1000); }
+            // For the purpose of this task, focusing on data display.
+            // The original card.js might have `updateTime` or similar.
+            // If the time element is 'time':
+            function updateLiveTime() {
+                const timeElement = document.getElementById('time');
+                if (timeElement) {
+                    const now = new Date();
+                    const formattedTime = now.toLocaleTimeString('pl-PL', { hour: '2-digit', minute: '2-digit', second: '2-digit' });
+                    const formattedDate = now.toLocaleDateString('pl-PL', { day: '2-digit', month: '2-digit', year: 'numeric' });
+                    timeElement.textContent = `Czas: ${formattedTime} ${formattedDate}`;
+                }
+            }
+            updateLiveTime();
+            setInterval(updateLiveTime, 1000);
+
+            // Unfold functionality for info_holder
+            const unfoldElement = document.querySelector(".info_holder");
+            if (unfoldElement) {
+                unfoldElement.addEventListener('click', () => {
+                    unfoldElement.classList.toggle("unfolded");
+                });
+            } else {
+                console.warn('Element with class .info_holder not found for unfold.');
+            }
+
+            // "Ostatnia aktualizacja" (last update) logic
+            const updateDateTextElement = document.getElementById("updateDateText");
+            const updateButtonElement = document.getElementById("updateButton");
+
+            if (localStorage.getItem("appUpdateDate") == null) {
+                localStorage.setItem("appUpdateDate", "24.12.2024");
+            }
+
+            if (updateDateTextElement) {
+                updateDateTextElement.innerHTML = localStorage.getItem("appUpdateDate");
+            } else {
+                console.warn('Element with ID updateDateText not found.');
+            }
+
+            if (updateButtonElement) {
+                updateButtonElement.addEventListener('click', () => {
+                    const currentDate = new Date();
+                    const newUpdateDate = currentDate.toLocaleDateString("pl-PL", dateOptions);
+                    localStorage.setItem("appUpdateDate", newUpdateDate);
+                    if (updateDateTextElement) {
+                        updateDateTextElement.innerHTML = newUpdateDate;
+                    }
+                    // scroll(0, 0); // Original card.js had this, keep if needed
+                });
+            } else {
+                console.warn('Update button with ID updateButton not found.');
+            }
+
+        });
+
+        // sendTo function is now globally available from assets/navigation.js
+
+    </script>
+
+
+</body></html>
